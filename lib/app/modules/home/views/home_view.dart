@@ -1,6 +1,4 @@
-import 'package:animated_search_bar/animated_search_bar.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
@@ -41,29 +39,30 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
           SizedBox(height: 15),
-          AnimatedSearchBar(
-            label: "Cari Sesuatu Di Sini",
-            labelStyle: TextStyle(color: Colors.white),
-            searchStyle: TextStyle(color: Colors.white),
-            searchDecoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white,
-                  width: 2,
-                ), // saat fokus
-                borderRadius: BorderRadius.circular(10),
-              ),
-              hintStyle: TextStyle(color: Colors.white70),
-              focusColor: Colors.white,
-              iconColor: Colors.white,
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  blurRadius: 15,
+                  offset: const Offset(0, 5),
+                ),
+              ],
             ),
-            onChanged: (value) {
-              debugPrint("value on Change");
-            },
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                hintStyle: const TextStyle(color: Colors.grey),
+                prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                border: InputBorder.none,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 15,
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 30),
           SingleChildScrollView(
